@@ -1,25 +1,24 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { useStudents } from '../hooks/useStudents.js'; 
 
 export default function AddStudent() {
   const [name, setName] = useState('');
   const [age, setAge] = useState('');
   const [grade, setGrade] = useState('');
   const navigate = useNavigate();
+  const { addStudent } = useStudents(); 
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    fetch('http://localhost:5000/students', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ name, age: parseInt(age), grade }),
-    })
-      .then(response => {
-        if (!response.ok) throw new Error('Failed to add student');
-        return response.json();
-      })
-      .then(() => navigate('/'))
-      .catch(error => console.error(error));
+    try {
+      
+      await addStudent({ name, age: parseInt(age), grade });
+      navigate('/'); 
+    } catch (error) {
+      console.error("Error adding student:", error);
+      alert('Failed to add student. Please try again.');
+    }
   };
 
   return (

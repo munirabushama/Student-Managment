@@ -1,0 +1,71 @@
+.layout-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh; 
+  width: 100%; 
+  padding: 0;
+  margin: 0;
+}
+
+.app-header {
+  background-color: #1a1a1a; 
+  padding: 1rem 2rem;
+  border-bottom: 1px solid #333;
+  display: flex;
+  flex-direction: column; 
+  align-items: center; 
+  gap: 1rem; 
+}
+
+.main-nav {
+  display: flex;
+  gap: 1rem; 
+}
+
+.nav-button {
+  background-color: #007bff;
+  color: white;
+  padding: 0.7em 1.5em;
+  border-radius: 5px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: background-color 0.25s;
+}
+
+.nav-button:hover {
+  background-color: #0056b3; 
+}
+
+.home-button {
+  background-color: #007bff; 
+}
+
+.add-student-button {
+  background-color: #28a745; 
+}
+
+.add-student-button:hover {
+  background-color: #218838;
+}
+
+.app-title {
+  color: #f8f8f8; 
+  margin: 0; 
+  font-size: 2.5em; 
+}
+
+.app-content {
+  flex-grow: 1; 
+  padding: 2rem;
+  text-align: center; 
+  max-width: 1280px;
+  margin: 0 auto;
+}
+
+
+@media (min-width: 768px) {
+  .app-header {
+    flex-direction: row; 
+    justify-content: space-between; 
+  }
+}
